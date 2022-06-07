@@ -1,0 +1,25 @@
+apiVersion: hivemq.com/v1
+kind: HiveMQCluster
+metadata:
+  name: hivemq-cluster1
+  namespace: hivemq
+spec:
+  hivemqVersion: 0.1.1-4.2.2
+  image: sbaier1/hivemq-k8s
+  imagePullPolicy: Always
+  nodeCount: 5
+  logLevel: INFO
+  mqtt:
+    maxQos: 2
+  monitoring:
+    enablePrometheus: true
+  memory: 10G
+  # This will result in 4 cpu cores being requested, but we can overcommit to all 8.
+  cpu: "4"
+  configMaps:
+    - name: hivemq-license
+      path: /opt/hivemq/license
+  extensions:
+    - name: hivemq-kafka-extension
+      extensionUri: https://www.hivemq.com/releases/extensions/hivemq-kafka-extension-1.0.0.zip
+      configMap: kafka-config
