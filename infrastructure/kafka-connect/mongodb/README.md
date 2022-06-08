@@ -117,7 +117,7 @@ This demo uses MongoDB Atlas, i.e. MongoDB as a fully managed service. Of course
 This demo uses a [MongoDB Atlas database for free](https://cloud.mongodb.com/). Please create your own one and replace the connection-uri with yours.
 
 ```bash
-mongodb+srv://admin:helloABC!@confluent-kafka-digital-twin.gcp.mongodb.net/test?retryWrites=true&w=majority
+mongodb+srv://<YOUR_USER_HERE>:<YOUR_PASS_HERE>@confluent-kafka-digital-twin.gcp.mongodb.net/test?retryWrites=true&w=majority
 ```
 
 Don't forget to whitelist your IP address. This is pretty straighforward in the Atlas cloud UI. Or you can make it accessible from everywhere with one single click (only for testing and with test data, obviously).
